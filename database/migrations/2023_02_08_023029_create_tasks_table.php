@@ -18,8 +18,8 @@ return new class extends Migration
             $table->bigIncrements("id");
             $table->string("tarea")->nullable();
             $table->text("descripcion")->nullable();
-            $table->time("fecha_registro")->nullable();
-            $table->timestamps();
+            $table->dateTime("fecha_registro")->nullable();
+            $table->string("active")->nullable();
         });
     }
 

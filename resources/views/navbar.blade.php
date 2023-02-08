@@ -8,10 +8,11 @@
                     <a href="{{route('task.home')}}" style="text-decoration: none; color: white">Tareas</a>
                 </li>
                 <li style="list-style: none" class="mx-4">
-                    <a href="{{route('task.form')}}" style="text-decoration: none; color: white">Crear Tarea</a>
+                    <a href="{{route('create.task')}}" style="text-decoration: none; color: white">Crear Tarea</a>
                 </li>
-                <li style="list-style: none" class="mx-4"><a href="#" style="text-decoration: none; color: white">Actualizar Tarea</a></li>
-                <li style="list-style: none" class="mx-4"><a href="#" style="text-decoration: none; color: white">Detalle Tarea</a></li>
+                <li style="list-style: none" class="mx-4">
+                    <a href="{{route("recycle.task")}}" style="text-decoration: none; color: white">Papelera</a>
+                </li>
             </ul>
         </div>
     </nav>

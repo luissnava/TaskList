@@ -13,8 +13,10 @@ class Task extends Model
         "tarea",
         "descripcion",
         "fecha_registro",
+        "active"
     ];
 
+    public $timestamps = false;
     protected $table = "tasks";
 
 
