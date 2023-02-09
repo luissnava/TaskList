@@ -1,11 +1,11 @@
 
 const token = document.getElementById("csrfToken").content;
 let url = window.location.origin;
-const eliminar = async (id) => {
-    const token = document.getElementById("csrfToken").content;
-    
+let vaciar = document.getElementById("vaciar");
+const form = new FormData()
 
-    const form = new FormData()
+
+const eliminar = async (id) => {
     form.append("id", id);
     form.append('_token', token);
 
@@ -26,9 +26,6 @@ const eliminar = async (id) => {
 
 const restaurar = async (id) => {
     
-    
-
-    const form = new FormData()
     form.append("id", id);
     form.append('_token', token);
 
@@ -46,11 +43,8 @@ const restaurar = async (id) => {
     }
 }
 
-
-let vaciar = document.getElementById("vaciar");
 const reciclar = async () => {
     
-    const form = new FormData()
     form.append('_token', token);
 
     const resp = await fetch(`${url}/delete-complete`, {

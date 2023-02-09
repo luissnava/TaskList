@@ -7,15 +7,15 @@ use Illuminate\Http\Request;
 
 class TaskController extends Controller
 {
-    //
+    //VISTAS
     public function home()
     {
-        $data = Task::select("tarea", "id")->where("active", "true")->get();
+        $data = Task::select("tarea", "id")->where("active", "activo")->get();
         return view("viewTask")->with("data", $data);
     }
     public function recycle_task()
     {
-        $data = Task::select("tarea", "id", "fecha_registro")->where("active", "false")->get();
+        $data = Task::select("tarea", "id", "fecha_registro")->where("active", "borrado")->get();
         return view("recycleTask")->with("data", $data);
     }
     public function create_task()
@@ -37,6 +37,9 @@ class TaskController extends Controller
     }
 
 
+    // CRUD
+
+    // Crear  
     public function createTask(Request $request)
     {
         $fecha = date('Y-m-d H:m:s');
@@ -44,12 +47,13 @@ class TaskController extends Controller
             'tarea' => $request->name,
             'descripcion' => $request->description,
             'fecha_registro' => $fecha,
-            'active' => "true"
+            'active' => "activo"
         ]);
 
         return response()->json($query,200);
     }
 
+    // Actualizar
     public function updateTask(Request $request)
     {
         $data = Task::where("id", $request->id)->update([
@@ -59,25 +63,30 @@ class TaskController extends Controller
         
        return response()->json($data,200);
     }
+
+    // Borrar
     public function deleteTask(Request $request)
     {
         $data = Task::where("id",$request->id)->update([
-            "active" => "false"
+            "active" => "borrado"
         ]);
 
         return response()->json($data,200);
     }
+
+    // Restaurar
     public function restartTask(Request $request)
     {
         $data = Task::where("id",$request->id)->update([
-            "active" => "true"
+            "active" => "activo"
         ]);
 
         return response()->json($data,200);
     }
 
+    // Vaciar Papelera
     public function delete_complete(){
-        $data = Task::where("active", "false")->delete();
+        $data = Task::where("active", "borrado")->delete();
 
         return response()->json($data,200);
     }
