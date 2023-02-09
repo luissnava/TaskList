@@ -16,6 +16,5 @@ Route::get("/recycle-task",[TaskController::class,"recycle_task"])->name("recycl
 Route::post("/deleteTask", [TaskController::class,"deleteTask"])->name("route.deleteTask");
 Route::post("/createTask",[TaskController::class,"createTask"])->name("route.createTask");
 Route::post("/updateTask",[TaskController::class,"updateTask"])->name("route.updateTask");
-
 Route::post("/restart-task",[TaskController::class,"restartTask"])->name("route.restartTask");
 Route::post("/delete-complete",[TaskController::class,"delete_complete"])->name("route.deleteComplete");

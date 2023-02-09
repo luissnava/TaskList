@@ -4,7 +4,6 @@ let url = window.location.origin;
 let vaciar = document.getElementById("vaciar");
 const form = new FormData()
 
-
 const eliminar = async (id) => {
     form.append("id", id);
     form.append('_token', token);
