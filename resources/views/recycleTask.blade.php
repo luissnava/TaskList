@@ -1,6 +1,11 @@
 @extends('Home')
 
 @section('name')
+<div class="row justify-content-end">
+    <div class="col-12 col-md-3 col-sm-6 col-lg-2 m-4 sticky-top">
+        <button class="btn btn-primary w-100" id="vaciar">Vaciar papelera</button>
+    </div>
+</div>
     <div class="row px-4 py-4">
         @foreach ($data as $item)
         <div class="col-12 col-sm-6 col-md-6 col-lg-3 mt-4">

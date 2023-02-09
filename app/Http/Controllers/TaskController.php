@@ -75,5 +75,11 @@ class TaskController extends Controller
 
         return response()->json($data,200);
     }
+
+    public function delete_complete(){
+        $data = Task::where("active", "false")->delete();
+
+        return response()->json($data,200);
+    }
     
 }
